@@ -1,0 +1,24 @@
+<% result = JSON.parse(@result)['info'] %>
+<div class="row">
+  <div class="col-xs-12">
+    <div id="photo-header" class="text-center">
+      <!-- PHOTO (AVATAR) -->
+      <div id="photo">
+        <img src="<%= result['profile'] %>" alt="头像" class="img-circle">
+      </div>
+      <div id="text-header">
+        <h1>Hello,<br> my name is <span><%= result['first_name'] %></span>,<span><%= result['last_name'] %></span>
+          as <%= result['nickname'] %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 text-center">
+    <h2 class="section-heading">I am living in <%= result['city'] %>, <%= result['country'] %> </h2>
+    <hr class="primary">
+    <h3>I have <%= result['friend_count'] %> friends here on #Strava, and <%= result['follower_count'] %> followers!
+      please come
+      to see me!</h3>
+  </div>
+</div>
