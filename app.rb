@@ -1,6 +1,9 @@
 require 'sinatra'
 require "sinatra/reloader"
 require 'yaml'
+require 'rack-flash'
+
+use Rack::Flash
 
 # configure sinatra
 set :run, false
@@ -15,28 +18,41 @@ $stdout.sync = true
 
 # server-side flow
 get '/' do
-  redirect '/auth/strava'
+  #redirect '/auth/strava'
+  erb :index
 end
-
-get 'auth/:provider' do
-
+get '/index' do
+  #redirect '/auth/strava'
+  redirect '/'
 end
 
 get '/auth/:provider/callback' do
   content_type 'text/html'
-  @result                 = MultiJson.encode(request.env['omniauth.auth'])
-  session['current_user'] = @result
+  @result                 = JSON.parse(MultiJson.encode(request.env['omniauth.auth']))
+  session['current_user'] = @result['info']
+  flash[:notice]          = "Welcome back #{@result['info']['nickname']}"
   redirect '/home'
 end
 
-
 get '/home' do
-  @result = session['current_user']
+  if session['current_user']
+    @result = session['current_user']
+    puts @result
 
-  erb :home
+    erb :home
+  else
+    redirect '/'
+  end
+
 end
 
 get '/auth/failure' do
   content_type 'application/json'
   MultiJson.encode(request.env)
+end
+
+get '/logout' do
+  session.clear
+  flash[:notice] = "You have logouted"
+  redirect 'index'
 end

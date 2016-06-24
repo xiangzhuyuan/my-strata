@@ -1,0 +1,8 @@
+task :default => %W[a]
+
+desc "Task description"
+task :a => [] do
+  %W[a b c].each do |abc|
+  puts abc
+end
+end
