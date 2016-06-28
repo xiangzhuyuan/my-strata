@@ -2,6 +2,9 @@ require 'sinatra'
 require "sinatra/reloader"
 require 'yaml'
 require 'rack-flash'
+require 'json'
+require 'Strava/Api/V3'
+require 'polylines'
 
 use Rack::Flash
 
@@ -30,6 +33,7 @@ get '/auth/:provider/callback' do
   content_type 'text/html'
   @result                 = JSON.parse(MultiJson.encode(request.env['omniauth.auth']))
   session['current_user'] = @result['info']
+  session['token']        = @result['credentials']['token']
   flash[:notice]          = "Welcome back #{@result['info']['nickname']}"
   redirect '/home'
 end
@@ -37,8 +41,33 @@ end
 get '/home' do
   if session['current_user']
     @result = session['current_user']
-    puts @result
 
+    # new client
+    @client = Strava::Api::V3::Client.new(:access_token => session['token'])
+    @routes = @client.list_athlete_routes
+
+    @route_point_arr = []
+    @routes.each do |route|
+      point_arr = Polylines::Decoder.decode_polyline(route['map']['summary_polyline'])
+      route_str = ''
+      route_str += "["
+      point_arr.each_with_index do |latlng, index|
+        route_str += "{lat:#{latlng[0]}, lng: #{latlng[1]}}"
+        if index < point_arr.length-1
+          route_str += ","
+        end
+      end
+      route_str += "]"
+
+      _center = "{lat:#{ point_arr[point_arr.length-1][0]}, lng: #{point_arr[point_arr.length-1][1]}}"
+
+      @route_point_arr << {
+        :name => route['name'],
+        :center => _center,
+        :route  => route_str
+      }
+    end
+    puts @route_point_arr[0]
     erb :home
   else
     redirect '/'
