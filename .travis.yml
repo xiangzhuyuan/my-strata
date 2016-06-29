@@ -26,14 +26,6 @@ env:
 rvm:
   - 2.1.5
 
-matrix:
-  include:
-    # Latest compiled version in http://rubies.travis-ci.org
-    - rvm: 2.3.1
-      env:
-        - "GEM=sinatra"
-  fast_finish: true
-
 notifications:
   email: true
 
