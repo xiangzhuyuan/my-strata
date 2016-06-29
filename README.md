@@ -6,8 +6,11 @@
 
 `Strava` のオープン`API`を利用して、個人のパブリックデータをフェーチし、次世代の名刺を作ります。
 
-use my `unoffical-omniauth-strava` to login by strava
+Essentially I reinvented a wheel [omniauth-strava](https://github.com/xiangzhuyuan/omniauth-strava) which copy from [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook),
+and I try to use that `gem` to build a new website based on `sinatra`.
 
+Why do such a stupid things, just I like the `Strava` service, most of features they provide I think so cool.
+So I tried to use them to build some thing.
 
 
 ---
