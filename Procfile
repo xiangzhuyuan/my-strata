@@ -1,1 +1,1 @@
-web: bundle exec rackup -t 5:5 -p 3000
+web: bundle exec rackup -p 3000
