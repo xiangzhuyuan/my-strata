@@ -3,7 +3,7 @@ require "sinatra/reloader"
 require 'yaml'
 require 'rack-flash'
 require 'json'
-require 'Strava/Api/V3'
+require 'Strava/Api/v3'
 require 'polylines'
 
 use Rack::Flash
