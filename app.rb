@@ -44,8 +44,8 @@ get '/home' do
 
     # new client
     @client = Strava::Api::V3::Client.new(:access_token => session['token'])
-    @routes = @client.list_athlete_routes
-
+    @routes = @client.list_athlete_routes[0...3]
+    # get only latest 3 routes
     @route_point_arr = []
     @routes.each do |route|
       point_arr = Polylines::Decoder.decode_polyline(route['map']['summary_polyline'])
