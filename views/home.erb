@@ -34,7 +34,7 @@
       <div id="map<%= index %>" class="map"></div>
       <script type="text/javascript">
 
-        function initMap <%=index%>() {
+        function initMap<%=index%>() {
           var map = new google.maps.Map(document.getElementById('map<%=index %>'), {
             zoom: 8,
             center: <%=route[:center] %>,
