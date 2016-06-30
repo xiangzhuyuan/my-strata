@@ -28,7 +28,7 @@
   </div>
 </div>
 <h3>My most favorite maps:</h3>
-<div class="row">
+<div class="map_container">
   <% @route_point_arr.each_with_index do |route, index| %>
       <h4><%= route[:name] %></h4>
       <div id="map<%= index %>" class="map"></div>
