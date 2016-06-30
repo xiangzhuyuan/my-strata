@@ -11,4 +11,6 @@ gem 'strava-api-v3', '0.6.0'
 gem 'polylines'
 
 
+gem 'tcxxxer', '1.0.0'
+gem 'nokogiri'
 gem 'puma', '2.11.2'

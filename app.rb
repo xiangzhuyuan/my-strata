@@ -6,6 +6,11 @@ require 'json'
 require 'strava/api/v3'
 require 'polylines'
 
+require 'uri'
+require 'open-uri'
+
+require 'tcxxxer'
+
 use Rack::Flash
 
 # configure sinatra
@@ -40,11 +45,11 @@ end
 
 get '/home' do
   if session['current_user']
-    @result = session['current_user']
+    @result          = session['current_user']
 
     # new client
-    @client = Strava::Api::V3::Client.new(:access_token => session['token'])
-    @routes = @client.list_athlete_routes[0...3]
+    @client          = Strava::Api::V3::Client.new(:access_token => session['token'])
+    @routes          = @client.list_athlete_routes[0...3]
     # get only latest 3 routes
     @route_point_arr = []
     @routes.each do |route|
@@ -62,7 +67,7 @@ get '/home' do
       _center = "{lat:#{ point_arr[point_arr.length-1][0]}, lng: #{point_arr[point_arr.length-1][1]}}"
 
       @route_point_arr << {
-        :name => route['name'],
+        :name   => route['name'],
         :center => _center,
         :route  => route_str
       }
@@ -84,4 +89,72 @@ get '/logout' do
   session.clear
   flash[:notice] = "You have logouted"
   redirect 'index'
+end
+
+
+get '/tcx' do
+  erb :tcx
+end
+
+post '/tcx' do
+  @route_id       = CGI.parse(URI.parse(params['latlonglab_url']).query)['id'].first
+  @range          = params['distance_range']
+  @html_file_list = []
+  # input parameter
+  tcx_url         = "http://latlonglab.yahoo.co.jp/route/get?id=#{@route_id}&format=tcx"
+  tcx_file        = "./public/tcx/#{@route_id}.tcx"
+  open(tcx_file, 'wb') do |file|
+    file << open(tcx_url).read
+  end
+  begin
+    db           = Tcxxxer::DB.open(tcx_file)
+    @points_list = []
+    db.courses.each do |course|
+      max_distance = (course.track.last.distance/1000).round(2).to_s + "km"
+      slice_ = course.track.length.to_f/((course.track.last.distance/1000).round(2)/@range.to_f)
+
+
+      puts max_distance
+      puts course.track.length.to_f
+      puts (course.track.last.distance/1000).round(2)
+      puts @range
+      puts slice_
+      puts slice_.ceil
+
+      course_range = course.track.each_slice(slice_).to_a
+
+      course_range.each_with_index do |range, _i|
+        @points    = []
+        @altitudes = []
+        range.each do |point|
+          @points << (point.distance/1000).round(2).to_s + "km"
+          @altitudes << point.altitude.round(2)
+          # @points_list << {:points => @points, :altitudes => @altitudes}
+        end
+
+        begin
+          # read all, get each id
+          file_locate = "/tcx_result/#{@route_id}_#{_i}.html"
+          html_file   = "./public/#{file_locate}"
+          @html_file_list << file_locate
+          puts "start read erb, and create html file ...."
+          renderer = ERB.new(File.read("./views/template.erb"))
+          result   = renderer.result(binding)
+
+          File.open(html_file, 'w') do |f|
+            puts "write #{html_file} start"
+            f.write(result)
+          end
+
+        rescue => e
+          puts e.message
+        end
+
+      end
+    end
+  rescue => e
+    flash[:notice] = e.message
+
+  end
+  erb :tcx_result
 end
