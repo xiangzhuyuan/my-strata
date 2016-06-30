@@ -35,9 +35,12 @@
       <script type="text/javascript">
 
         function initMap<%=index%>() {
+          var isDraggable = $(document).width() > 480 ? true : false;
+
           var map = new google.maps.Map(document.getElementById('map<%=index %>'), {
             zoom: 8,
             center: <%=route[:center] %>,
+            draggable: isDraggable,
             scrollwheel: false,
             mapTypeId: google.maps.MapTypeId.TERRAIN
           });
