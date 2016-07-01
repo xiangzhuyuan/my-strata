@@ -110,9 +110,18 @@ post '/tcx' do
   # input parameter
   tcx_url         = "http://latlonglab.yahoo.co.jp/route/get?id=#{@route_id}&format=tcx"
   tcx_file        = "./public/tcx/#{@route_id}.tcx"
+
+
   open(tcx_file, 'wb') do |file|
     file << open(tcx_url).read
   end
+
+  # if ルートが空です。
+  if IO.read(tcx_file).include? "ルートが空です"
+    flash[:notice] = "Caution!@ looks like you give us an invalid route ID ~ try again!"
+    redirect 'tcx'
+  end
+
   begin
     db           = Tcxxxer::DB.open(tcx_file)
     @points_list = []
