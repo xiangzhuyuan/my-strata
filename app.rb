@@ -93,13 +93,20 @@ end
 
 
 get '/tcx' do
-  erb :tcx
+  erb :tcx, :layout => :tcx_layout
 end
 
 post '/tcx' do
-  @route_id       = CGI.parse(URI.parse(params['latlonglab_url']).query)['id'].first
+  @route_url       = params['latlonglab_url']
   @range          = params['distance_range']
+  unless  @range.numeric? && @route_url =~ /http:\/\/latlonglab.yahoo.co.jp\/route\/watch\?id=[a-zA-Z\d]+$/
+    flash[:notice] = "Caution!@ looks like you give us some invalid parameter~ try again!"
+    redirect 'tcx'
+  end
+  @route_id       = CGI.parse(URI.parse(params['latlonglab_url']).query)['id'].first
+
   @html_file_list = []
+  @course_name = ''
   # input parameter
   tcx_url         = "http://latlonglab.yahoo.co.jp/route/get?id=#{@route_id}&format=tcx"
   tcx_file        = "./public/tcx/#{@route_id}.tcx"
@@ -110,6 +117,8 @@ post '/tcx' do
     db           = Tcxxxer::DB.open(tcx_file)
     @points_list = []
     db.courses.each do |course|
+      @course_name = course.name
+      @part = 0
       max_distance = (course.track.last.distance/1000).round(2).to_s + "km"
       slice_ = course.track.length.to_f/((course.track.last.distance/1000).round(2)/@range.to_f)
 
@@ -124,6 +133,7 @@ post '/tcx' do
       course_range = course.track.each_slice(slice_).to_a
 
       course_range.each_with_index do |range, _i|
+        @part = _i
         @points    = []
         @altitudes = []
         range.each do |point|
@@ -147,14 +157,13 @@ post '/tcx' do
           end
 
         rescue => e
-          puts e.message
+          flash[:notice] = e.message
         end
-
       end
     end
   rescue => e
     flash[:notice] = e.message
 
   end
-  erb :tcx_result
+  erb :tcx_result, :layout => :tcx_layout
 end

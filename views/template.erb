@@ -9,6 +9,13 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <!--<link href="/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">-->
   <style>
+    @media print {
+      /* style sheet for print goes here */
+
+      .bg-info{
+        display: none;
+      }
+    }
     .fadeout {
       -webkit-opacity: 0.25;
       -moz-opacity: 0.25;
@@ -40,6 +47,7 @@
 <p class="bg-info">
   Press <kbd><kbd>⌘</kbd> + <kbd>p</kbd></kbd>, or <kbd><kbd>ctrl</kbd> + <kbd>p</kbd></kbd> to print this page, enjoy your ride trip!
 </p>
+<h1><%= @course_name %>(part <%= @part+1 %>)</h1>
 <div style="width:100%;">
   <canvas id="canvas"></canvas>
 </div>

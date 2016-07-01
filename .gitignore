@@ -3,3 +3,5 @@ app.log
 
 public/tcx
 public/tcx_result
+bootstrap/
+examples_bootstrap/

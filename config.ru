@@ -8,4 +8,12 @@ use OmniAuth::Builder do
   provider :strava, ENV['APP_ID'], ENV['APP_SECRET'], :scope => 'public'
 end
 
+
+class String
+  def numeric?
+    Float(self) != nil rescue false
+  end
+end
+
+
 run Sinatra::Application
