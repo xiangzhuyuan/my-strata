@@ -57,14 +57,14 @@
     responsive: true,
     title: {
       display: true,
-      text: 'Chart.js Line Chart'
+      text: ''
     },
     tooltips: {
-      mode: 'label',
+      mode: 'single',
       callbacks: {}
     },
     hover: {
-      mode: 'dataset'
+//      mode: 'dataset'
     },
     scales: {
       xAxes: [{
@@ -94,22 +94,22 @@
       {
         label: "海拔",
         fill: false,
-        lineTension: 0.1,
+        lineTension: 0,
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "rgba(75,192,192,1)",
-        borderCapStyle: 'butt',
+        borderCapStyle: 'round',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
         pointBorderColor: "rgba(75,192,192,1)",
         pointBackgroundColor: "#fff",
         pointBorderWidth: 1,
-        pointHoverRadius: 5,
+        pointHoverRadius: 1,
         pointHoverBackgroundColor: "rgba(75,192,192,1)",
         pointHoverBorderColor: "rgba(220,220,220,1)",
-        pointHoverBorderWidth: 2,
+        pointHoverBorderWidth: 1,
         pointRadius: 1,
-        pointHitRadius: 10,
+        pointHitRadius: 1,
         data: <%=@altitudes %>
       }
     ]
