@@ -18,12 +18,12 @@ set :run, false
 set :raise_errors, true
 
 # setup logging to file
-log = File.new("app.log", "a+")
-$stdout.reopen(log)
-$stderr.reopen(log)
-$stderr.sync = true
-$stdout.sync = true
-
+log = File.new("logs/app.log", "a+")
+#$stdout.reopen(log)
+#$stderr.reopen(log)
+#$stderr.sync = true
+#$stdout.sync = true
+#
 # server-side flow
 get '/' do
   #redirect '/auth/strava'
