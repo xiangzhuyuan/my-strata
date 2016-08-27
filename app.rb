@@ -96,6 +96,27 @@ get '/tcx' do
   erb :tcx, :layout => :tcx_layout
 end
 
+get '/list' do
+  prefix = "https://strava.xiangzhuyuan.com/tcx_result/"
+  @f_lst = [] 
+  _lst = Dir["/var/www/strava.xiangzhuyuan.com/my-strata/public/tcx_result/**/*.html"]
+           .sort_by{ |f| File.mtime(f) }
+           .reverse!
+           .first(20)
+  _lst.each do |f|
+    @f_lst << prefix +File.basename(f) 
+  end
+  erb :lists, :layout => :tcx_layout
+end
+
+
+get '/about' do 
+
+ erb :about, :layout => :tcx_layout
+end
+
+
+
 post '/tcx' do
   @route_url       = params['latlonglab_url']
   @range          = params['distance_range']
