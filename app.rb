@@ -104,7 +104,12 @@ get '/list' do
            .reverse!
            .first(20)
   _lst.each do |f|
-    @f_lst << prefix +File.basename(f) 
+    # get title in html file
+    require 'nokogiri'
+    doc   = Nokogiri::HTML(File.open(f))
+    title = doc.css("h1").text
+    @f_lst <<{ path: prefix + File.basename(f), title: title }
+    #@f_lst << prefix + File.basename(f) 
   end
   erb :lists, :layout => :tcx_layout
 end

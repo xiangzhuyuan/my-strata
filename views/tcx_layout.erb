@@ -97,6 +97,21 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('.alert-success').addClass('fadeout');
+  activePath = window.location.pathname;
+    if (activePath == "/tcx") {
+      $("nav > ul > li:nth-child(1)").addClass('active');
+      $("nav > ul > li:nth-child(2)").removeClass('active');
+      $("nav > ul > li:nth-child(3)").removeClass('active');
+    } else if (activePath == "/list") {
+      $("nav > ul > li:nth-child(2)").addClass('active');
+      $("nav > ul > li:nth-child(1)").removeClass('active');
+      $("nav > ul > li:nth-child(3)").removeClass('active');
+    } else {
+      $("nav > ul > li:nth-child(3)").addClass('active');
+      $("nav > ul > li:nth-child(2)").removeClass('active');
+      $("nav > ul > li:nth-child(1)").removeClass('active');
+    }
+
   });
 
 </script>
