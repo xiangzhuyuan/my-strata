@@ -19,11 +19,13 @@ set :raise_errors, true
 
 # setup logging to file
 log = File.new("logs/app.log", "a+")
-#$stdout.reopen(log)
-#$stderr.reopen(log)
-#$stderr.sync = true
-#$stdout.sync = true
-#
+configure do
+  # logging is enabled by default in classic style applications,
+  # so `enable :logging` is not needed
+  file = File.new("logs/app.log", 'a+')
+  file.sync = true
+  use Rack::CommonLogger, file
+end
 # server-side flow
 get '/' do
   #redirect '/auth/strava'
@@ -93,6 +95,7 @@ end
 
 
 get '/tcx' do
+  logger.info 'get tcx'
   erb :tcx, :layout => :tcx_layout
 end
 
@@ -125,6 +128,8 @@ end
 post '/tcx' do
   @route_url       = params['latlonglab_url']
   @range          = params['distance_range']
+  logger.error @route_url
+  logger.error @range
   unless  @range.numeric? && @route_url =~ /http:\/\/latlonglab.yahoo.co.jp\/route\/watch\?id=[a-zA-Z\d]+$/
     flash[:notice] = "Caution!@ looks like you give us some invalid parameter~ try again!"
     redirect 'tcx'
@@ -158,12 +163,12 @@ post '/tcx' do
       slice_ = course.track.length.to_f/((course.track.last.distance/1000).round(2)/@range.to_f)
 
 
-      puts max_distance
-      puts course.track.length.to_f
-      puts (course.track.last.distance/1000).round(2)
-      puts @range
-      puts slice_
-      puts slice_.ceil
+      logger.info  max_distance
+      logger.info  course.track.length.to_f
+      logger.info  (course.track.last.distance/1000).round(2)
+      logger.info  @range
+      logger.info  slice_
+      logger.info  slice_.ceil
 
       course_range = course.track.each_slice(slice_).to_a
 
