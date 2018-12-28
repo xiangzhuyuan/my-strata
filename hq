@@ -1,0 +1,197 @@
+commit 571fad9b991b3f094c7437624eda6b5f66d73b7f
+Author: mathewxiang <xiangzhuyuan@gmail.com>
+Date:   Sat Aug 27 23:50:34 2016 +0900
+
+    new frfaertuer lsti page about page
+
+commit ae665257b39098893689f684107d9fd9afe7ee79
+Author: mathewxiang <xiangzhuyuan@gmail.com>
+Date:   Sat Jul 9 23:42:30 2016 +0900
+
+    prod
+
+commit 5fc366deda9b17911fbcfa7922c17eac1ec28274
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Sat Jul 2 20:13:02 2016 +0900
+
+    new style of line chart
+
+commit b41869283681ed4e59f3c7918d4b8bb4eb143d6a
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Sat Jul 2 19:46:53 2016 +0900
+
+    add title
+
+commit 62825a4fe4a54551196eb0a0536b1b1395d6f41b
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jul 1 13:39:33 2016 +0900
+
+    add a home link
+
+commit 1c580cf679194374d274808ee0ee9b49bb3c2252
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jul 1 12:04:22 2016 +0900
+
+    check if the route id is valid redirect to
+
+commit 686b760e99f9034540b54ab01f9b8cf9bed2f1a2
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jul 1 11:54:42 2016 +0900
+
+    add lost css file
+
+commit 47f91bcc89fbf8d4d117ba43570349fe42030eff
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jul 1 11:34:50 2016 +0900
+
+    totally new styl
+
+commit 58ae4a67c6bc852c0d9aff459e2ca75f4744bb0f
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jul 1 00:04:35 2016 +0900
+
+    add new ignroe
+
+commit 73eed38c61a2120fc1f949ee943969a211033c41
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jul 1 00:03:52 2016 +0900
+
+    new style
+
+commit e2a730c0968dfe808faad1ed1aa98000a62661de
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Thu Jun 30 11:25:38 2016 +0900
+
+    check current view size to set map draggable option
+
+commit 5365eb507c1ab80dba751a5b286049b876400d9e
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Thu Jun 30 10:55:33 2016 +0900
+
+    new style
+
+commit 202e502cf2ce7fe550e895ef012601df38c20b51
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 14:08:02 2016 +0900
+
+    update readme add codecimate
+
+commit f3ee8a13951321ebc4160b66d971b7c352a10f99
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 14:05:52 2016 +0900
+
+    add codeclimate
+
+commit 7646d4b588d867174ed72a5ad7d3635148602bd5
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 13:42:28 2016 +0900
+
+    update readme
+
+commit 0088ee4d10668e19a299a08958c24cbbb9421201
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 13:36:28 2016 +0900
+
+    wrap in div
+
+commit 3d4f9cea2c3735dc7cbbfcf07af313d9831c2a3a
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 11:21:48 2016 +0900
+
+    add a google map option to disable scrill wheel event
+
+commit 70232e8a0d4218bed92f13131df8ce958ffbaf5f
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 11:16:23 2016 +0900
+
+    only get 3 routes since its too heavy for a web page render a log route
+
+commit 2f946d265f0f4e95d9e35330b38cf154b31b66ee
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:56:41 2016 +0900
+
+    update readme
+
+commit 9a6d1db2aaf715edbe893784732dde235c02e8f8
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:46:04 2016 +0900
+
+    update todo
+
+commit 0132841bb51199bd97cfdf3120e794e1a199648a
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:42:25 2016 +0900
+
+    change travic build
+
+commit 26c041543590f44aefd1a5da5a99aa02fa4569fa
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:38:11 2016 +0900
+
+    change travic build
+
+commit fd8cf06ceeb092b03578b043d704e528623025b2
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:31:15 2016 +0900
+
+    make it run
+
+commit 5f3b8d09d0342e3ea52f157c30af6cd8e71336dc
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:26:34 2016 +0900
+
+    fix bug
+
+commit 92ecb48aa0cd418f534e316be946e1479a02b8a8
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:15:04 2016 +0900
+
+    fix bug
+
+commit 932eb4dc379f2c1fcc115eb60b080245715989be
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:07:10 2016 +0900
+
+    use puma
+
+commit 5484782a9b22d1f761d396b7029ea153c1b7dd3a
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 10:02:13 2016 +0900
+
+    use rackip
+
+commit 341a1be0c2ae6b4431e6636d0477026e27fd03f5
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 09:59:01 2016 +0900
+
+    use rackip
+
+commit 8c0d83dc19657efa4acab4722f09a6e8b85aa9c5
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 09:53:15 2016 +0900
+
+    heroku version
+
+commit 9a58ba69093f6d5688dab05d24a337396fcfe21e
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Wed Jun 29 09:52:36 2016 +0900
+
+    add ingore
+
+commit 63c4fdcc9c71b63c03324965a60cf192ade32e9c
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Tue Jun 28 20:16:43 2016 +0900
+
+    add map in home page
+
+commit 855059cc6d9a8556f231e87caae5da886c204214
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jun 24 14:15:47 2016 +0900
+
+    init
+
+commit 6544db55fee5d927422e8df25677a66219a29b6e
+Author: Xiang, Zhuyuan <zhuyuan.xiang@rakuten.com>
+Date:   Fri Jun 24 14:14:30 2016 +0900
+
+    init

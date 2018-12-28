@@ -1,0 +1,124 @@
+[ 2016-07-05 15:46:36.4089 22077/7f87efe577e0 age/Wat/WatchdogMain.cpp:1291 ]: Starting Passenger watchdog...
+[ 2016-07-05 15:46:36.4164 22080/7f49f30487e0 age/Cor/CoreMain.cpp:982 ]: Starting Passenger core...
+[ 2016-07-05 15:46:36.4166 22080/7f49f30487e0 age/Cor/CoreMain.cpp:235 ]: Passenger core running in multi-application mode.
+[ 2016-07-05 15:46:36.4200 22080/7f49f30487e0 age/Cor/CoreMain.cpp:732 ]: Passenger core online, PID 22080
+[ 2016-07-05 15:46:36.4255 22085/7f2f58c4b7e0 age/Ust/UstRouterMain.cpp:529 ]: Starting Passenger UstRouter...
+[ 2016-07-05 15:46:36.4265 22085/7f2f58c4b7e0 age/Ust/UstRouterMain.cpp:342 ]: Passenger UstRouter online, PID 22085
+App 22118 stdout: 
+App 22118 stdout: 
+[ 2016-07-05 15:46:39.0512 22080/7f49f05a9700 age/Cor/App/Implementation.cpp:304 ]: Could not spawn process for application /var/www/strava.xiangzhuyuan.com/my-strata: An error occurred while starting up the preloader.
+  Error ID: 24eb4f75
+  Error details saved to: /tmp/passenger-error-XtPbnr.html
+  Message from application: Your Ruby version is 2.2.2, but your Gemfile specified 2.1.5 (Bundler::RubyVersionMismatch)
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/definition.rb:412:in `validate_ruby!'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler.rb:123:in `setup'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/setup.rb:18:in `<top (required)>'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/ruby_supportlib/phusion_passenger/loader_shared_helpers.rb:430:in `activate_gem'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/ruby_supportlib/phusion_passenger/loader_shared_helpers.rb:297:in `block in run_load_path_setup_code'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/ruby_supportlib/phusion_passenger/loader_shared_helpers.rb:435:in `running_bundler'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/ruby_supportlib/phusion_passenger/loader_shared_helpers.rb:296:in `run_load_path_setup_code'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/helper-scripts/rack-preloader.rb:100:in `preload_app'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/helper-scripts/rack-preloader.rb:156:in `<module:App>'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/helper-scripts/rack-preloader.rb:30:in `<module:PhusionPassenger>'
+  /home/matt/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/passenger-5.0.29/src/helper-scripts/rack-preloader.rb:29:in `<main>'
+
+
+[ 2016-07-05 15:46:39.0572 22080/7f49f252f700 age/Cor/Con/CheckoutSession.cpp:285 ]: [Client 1-1] Cannot checkout session because a spawning error occurred. The identifier of the error is 24eb4f75. Please see earlier logs for details about the error.
+
+[ 2016-07-05 15:47:35.3307 22080/7f49f252f700 age/Cor/CoreMain.cpp:532 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-07-05 15:47:35.3308 22080/7f49f30487e0 age/Cor/CoreMain.cpp:901 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-07-05 15:47:35.3312 22080/7f49f1aad700 Ser/Server.h:817 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2016-07-05 15:47:35.3313 22080/7f49f1aad700 Ser/Server.h:464 ]: [ServerThr.2] Shutdown finished
+[ 2016-07-05 15:47:35.3315 22080/7f49f102b700 Ser/Server.h:817 ]: [ApiServer] Freed 0 spare client objects
+[ 2016-07-05 15:47:35.3316 22080/7f49f102b700 Ser/Server.h:464 ]: [ApiServer] Shutdown finished
+[ 2016-07-05 15:47:35.3319 22080/7f49f252f700 Ser/Server.h:817 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2016-07-05 15:47:35.3320 22080/7f49f252f700 Ser/Server.h:464 ]: [ServerThr.1] Shutdown finished
+
+[ 2016-07-05 15:47:35.3326 22085/7f2f53fff700 age/Ust/UstRouterMain.cpp:422 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-07-05 15:47:35.3327 22085/7f2f58c4b7e0 age/Ust/UstRouterMain.cpp:492 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-07-05 15:47:35.3328 22085/7f2f53fff700 Ser/Server.h:464 ]: [UstRouter] Shutdown finished
+[ 2016-07-05 15:47:35.3328 22085/7f2f535fe700 Ser/Server.h:817 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2016-07-05 15:47:35.3329 22085/7f2f535fe700 Ser/Server.h:464 ]: [UstRouterApiServer] Shutdown finished
+[ 2016-07-05 15:47:35.3334 22085/7f2f58c4b7e0 age/Ust/UstRouterMain.cpp:523 ]: Passenger UstRouter shutdown finished
+[ 2016-07-05 15:47:35.3648 22080/7f49f30487e0 age/Cor/CoreMain.cpp:967 ]: Passenger core shutdown finished
+[ 2016-07-05 16:03:46.1637 19383/7f4fb5e40720 age/Wat/WatchdogMain.cpp:1291 ]: Starting Passenger watchdog...
+[ 2016-07-05 16:03:46.1743 19386/7ff009cc4720 age/Cor/CoreMain.cpp:982 ]: Starting Passenger core...
+[ 2016-07-05 16:03:46.1744 19386/7ff009cc4720 age/Cor/CoreMain.cpp:235 ]: Passenger core running in multi-application mode.
+[ 2016-07-05 16:03:46.1766 19386/7ff009cc4720 age/Cor/CoreMain.cpp:732 ]: Passenger core online, PID 19386
+[ 2016-07-05 16:03:46.1827 19391/7f4c1fabe720 age/Ust/UstRouterMain.cpp:529 ]: Starting Passenger UstRouter...
+[ 2016-07-05 16:03:46.1834 19391/7f4c1fabe720 age/Ust/UstRouterMain.cpp:342 ]: Passenger UstRouter online, PID 19391
+App 19424 stdout: 
+
+[ 2016-07-05 16:04:21.6809 19386/7ff0091ab700 age/Cor/CoreMain.cpp:532 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-07-05 16:04:21.6810 19386/7ff009cc4720 age/Cor/CoreMain.cpp:901 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-07-05 16:04:21.6814 19386/7feff3fff700 Ser/Server.h:817 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2016-07-05 16:04:21.6815 19386/7feff3fff700 Ser/Server.h:464 ]: [ServerThr.2] Shutdown finished
+[ 2016-07-05 16:04:21.6816 19386/7feff35fe700 Ser/Server.h:817 ]: [ApiServer] Freed 0 spare client objects
+
+[ 2016-07-05 16:04:21.6816 19386/7feff35fe700 Ser/Server.h:464 ]: [ApiServer] Shutdown finished
+[ 2016-07-05 16:04:21.6816 19391/7f4c1f82d700 age/Ust/UstRouterMain.cpp:422 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-07-05 16:04:21.6817 19391/7f4c1fabe720 age/Ust/UstRouterMain.cpp:492 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-07-05 16:04:21.6818 19391/7f4c1f82d700 Ser/Server.h:464 ]: [UstRouter] Shutdown finished
+[ 2016-07-05 16:04:21.6818 19391/7f4c1edab700 Ser/Server.h:817 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2016-07-05 16:04:21.6818 19391/7f4c1edab700 Ser/Server.h:464 ]: [UstRouterApiServer] Shutdown finished
+[ 2016-07-05 16:04:21.6823 19391/7f4c1fabe720 age/Ust/UstRouterMain.cpp:523 ]: Passenger UstRouter shutdown finished
+[ 2016-07-05 16:04:51.6857 19435/7f4fb5e40720 age/Wat/WatchdogMain.cpp:478 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2016-07-06 14:50:28.1493 383/7f98321367e0 age/Wat/WatchdogMain.cpp:1291 ]: Starting Passenger watchdog...
+[ 2016-07-06 14:50:28.1571 387/7f056d1d17e0 age/Cor/CoreMain.cpp:982 ]: Starting Passenger core...
+[ 2016-07-06 14:50:28.1573 387/7f056d1d17e0 age/Cor/CoreMain.cpp:235 ]: Passenger core running in multi-application mode.
+[ 2016-07-06 14:50:28.1601 387/7f056d1d17e0 age/Cor/CoreMain.cpp:732 ]: Passenger core online, PID 387
+[ 2016-07-06 14:50:28.1659 392/7f9574b797e0 age/Ust/UstRouterMain.cpp:529 ]: Starting Passenger UstRouter...
+[ 2016-07-06 14:50:28.1669 392/7f9574b797e0 age/Ust/UstRouterMain.cpp:342 ]: Passenger UstRouter online, PID 392
+App 425 stdout: 
+App 440 stdout: 
+App 425 stderr: 127.0.0.1 - - [06/Jul/2016:14:50:31 +0900] "HEAD / HTTP/1.1" 200 1896 0.0111
+App 425 stderr: 127.0.0.1 - - [06/Jul/2016:14:51:23 +0900] "GET / HTTP/1.1" 200 1896 0.0101
+
+[ 2016-07-06 14:51:50.5491 392/7f956ffff700 age/Ust/UstRouterMain.cpp:422 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-07-06 14:51:50.5492 392/7f9574b797e0 age/Ust/UstRouterMain.cpp:492 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-07-06 14:51:50.5493 392/7f956ffff700 Ser/Server.h:464 ]: [UstRouter] Shutdown finished
+[ 2016-07-06 14:51:50.5494 392/7f956f5fe700 Ser/Server.h:817 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2016-07-06 14:51:50.5494 392/7f956f5fe700 Ser/Server.h:464 ]: [UstRouterApiServer] Shutdown finished
+
+[ 2016-07-06 14:51:50.5496 387/7f055ffff700 age/Cor/CoreMain.cpp:532 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-07-06 14:51:50.5497 387/7f056d1d17e0 age/Cor/CoreMain.cpp:901 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-07-06 14:51:50.5498 387/7f056d1d17e0 age/Cor/CoreMain.cpp:819 ]: Checking whether to disconnect long-running connections for process 440, application /var/www/strava.xiangzhuyuan.com/my-strata/public (development)
+[ 2016-07-06 14:51:50.5506 387/7f055ffff700 Ser/Server.h:817 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2016-07-06 14:51:50.5507 387/7f055ffff700 Ser/Server.h:464 ]: [ServerThr.1] Shutdown finished
+[ 2016-07-06 14:51:50.5509 387/7f055ebfd700 Ser/Server.h:817 ]: [ApiServer] Freed 0 spare client objects
+[ 2016-07-06 14:51:50.5509 387/7f055ebfd700 Ser/Server.h:464 ]: [ApiServer] Shutdown finished
+[ 2016-07-06 14:51:50.5509 387/7f055f5fe700 Ser/Server.h:817 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2016-07-06 14:51:50.5510 387/7f055f5fe700 Ser/Server.h:464 ]: [ServerThr.2] Shutdown finished
+[ 2016-07-06 14:51:50.5512 387/7f056d1d17e0 age/Cor/CoreMain.cpp:819 ]: Checking whether to disconnect long-running connections for process 440, application /var/www/strava.xiangzhuyuan.com/my-strata/public (development)
+[ 2016-07-06 14:51:50.5530 392/7f9574b797e0 age/Ust/UstRouterMain.cpp:523 ]: Passenger UstRouter shutdown finished
+[ 2016-07-06 14:51:50.7953 387/7f056d1d17e0 age/Cor/CoreMain.cpp:967 ]: Passenger core shutdown finished
+[ 2016-08-27 22:34:35.6416 7315/7fafef5967e0 age/Wat/WatchdogMain.cpp:1291 ]: Starting Passenger watchdog...
+[ 2016-08-27 22:34:35.6519 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:982 ]: Starting Passenger core...
+[ 2016-08-27 22:34:35.6521 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:235 ]: Passenger core running in multi-application mode.
+[ 2016-08-27 22:34:35.6600 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:732 ]: Passenger core online, PID 7318
+[ 2016-08-27 22:34:35.6704 7323/7fcf2eb637e0 age/Ust/UstRouterMain.cpp:529 ]: Starting Passenger UstRouter...
+[ 2016-08-27 22:34:35.6735 7323/7fcf2eb637e0 age/Ust/UstRouterMain.cpp:342 ]: Passenger UstRouter online, PID 7323
+App 7356 stdout: 
+App 7371 stdout: 
+App 7356 stderr: 127.0.0.1 - - [27/Aug/2016:22:34:38 +0900] "HEAD / HTTP/1.1" 200 1896 0.0213
+
+[ 2016-08-27 22:34:53.7504 7318/7fa75cf98700 age/Cor/CoreMain.cpp:532 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-08-27 22:34:53.7506 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:901 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-08-27 22:34:53.7506 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:819 ]: Checking whether to disconnect long-running connections for process 7371, application /var/www/strava.xiangzhuyuan.com/my-strata/public (development)
+[ 2016-08-27 22:34:53.7510 7318/7fa747fff700 Ser/Server.h:817 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2016-08-27 22:34:53.7510 7318/7fa747fff700 Ser/Server.h:464 ]: [ServerThr.2] Shutdown finished
+[ 2016-08-27 22:34:53.7513 7318/7fa75cf98700 Ser/Server.h:817 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2016-08-27 22:34:53.7513 7318/7fa75cf98700 Ser/Server.h:464 ]: [ServerThr.1] Shutdown finished
+[ 2016-08-27 22:34:53.7514 7318/7fa7477fe700 Ser/Server.h:817 ]: [ApiServer] Freed 0 spare client objects
+[ 2016-08-27 22:34:53.7516 7318/7fa7477fe700 Ser/Server.h:464 ]: [ApiServer] Shutdown finished
+
+[ 2016-08-27 22:34:53.7516 7323/7fcf2e8d2700 age/Ust/UstRouterMain.cpp:422 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2016-08-27 22:34:53.7517 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:819 ]: Checking whether to disconnect long-running connections for process 7371, application /var/www/strava.xiangzhuyuan.com/my-strata/public (development)
+[ 2016-08-27 22:34:53.7518 7323/7fcf2eb637e0 age/Ust/UstRouterMain.cpp:492 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2016-08-27 22:34:53.7522 7323/7fcf2e8d2700 Ser/Server.h:464 ]: [UstRouter] Shutdown finished
+[ 2016-08-27 22:34:53.7523 7323/7fcf2e050700 Ser/Server.h:817 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2016-08-27 22:34:53.7523 7323/7fcf2e050700 Ser/Server.h:464 ]: [UstRouterApiServer] Shutdown finished
+[ 2016-08-27 22:34:53.7528 7323/7fcf2eb637e0 age/Ust/UstRouterMain.cpp:523 ]: Passenger UstRouter shutdown finished
+[ 2016-08-27 22:34:53.9951 7318/7fa75d8b17e0 age/Cor/CoreMain.cpp:967 ]: Passenger core shutdown finished

@@ -1,0 +1,10 @@
+app.log
+.idea
+public/*.gif
+public/tcx
+public/tcx_result
+bootstrap/
+public/*.mp4
+public/*.mov
+public/*.MOV
+examples_bootstrap/

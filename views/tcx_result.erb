@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <h3>Just as your choice, we splitted your course into <%= @html_file_list.length %> parts.</h3>
+  <h4>Please click the below each link to check, you can print those pages;</h4>
+  <ul style="height:425px;overflow:scroll" class="list-group">
+    <% i = 0%>
+    <% @html_file_list.each do |f| %>
+        <% i+=1 %>
+        <li class="list-group-item"><a href="<%= f %>" title="<%= f %>"><%= @course_name %>(part <%= i %>)</a></li>
+    <% end %>
+  </ul>
+
+</div>

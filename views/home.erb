@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div id="photo-header" class="text-center">
+      <!-- PHOTO (AVATAR) -->
+      <div id="photo">
+        <img src="<%= @result['profile'] %>" alt="头像" class="img-circle">
+      </div>
+      <div id="text-header">
+        <h1>Hello,<br> my name is <span><%= @result['first_name'] %></span>,<span><%= @result['last_name'] %></span>
+          as <%= @result['nickname'] %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 text-center">
+    <h2 class="section-heading">I am living in <%= @result['city'] %>, <%= @result['country'] %> </h2>
+    <hr class="primary">
+    <h3>I have <%= @result['friend_count'] %> friends here on #Strava, and <%= @result['follower_count'] %> followers!
+      please come
+      to see me!</h3>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+      <h3 class="section-heading"><a href='/logout' title='logout'>Logout</a></h3>
+
+    </div>
+  </div>
+</div>
+<h3>My most favorite maps:</h3>
+<div class="map_container">
+  <% @route_point_arr.each_with_index do |route, index| %>
+      <h4><%= route[:name] %></h4>
+      <div id="map<%= index %>" class="map"></div>
+      <script type="text/javascript">
+
+        function initMap<%=index%>() {
+          var isDraggable = $(document).width() > 480 ? true : false;
+
+          var map = new google.maps.Map(document.getElementById('map<%=index %>'), {
+            zoom: 8,
+            center: <%=route[:center] %>,
+            draggable: isDraggable,
+            scrollwheel: false,
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+          });
+          var flightPlanCoordinates = <%=route[:route] %>;
+          var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+          });
+
+          flightPath.setMap(map);
+        }
+
+      </script>
+  <% end %>
+</div>
+<script type="text/javascript">
+  function initMap() {
+    <% @route_point_arr.each_with_index do |route, index| %>
+    initMap<%=index%>();
+    <%end%>
+  }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDLZYaCoHm-YacbDW2fJyH6zG8YBO6NJ4&callback=initMap">
+</script>

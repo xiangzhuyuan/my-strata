@@ -1,0 +1,28 @@
+<div class="wrapper">
+
+  <form method="post" action="/tcx">
+    <div class="form-group">
+      <label for="latlonglab_url">latlonglab url</label>
+      <input type="text" class="form-control" id="latlonglab_url" name="latlonglab_url" placeholder="http://latlonglab.yahoo.co.jp/route/watch?id=c899a8370f06177785bb3b441e154306">
+    </div>
+    <p> OR </p>
+    <div class="form-group">
+        <label class="control-label">Select File</label>
+        <input id="input-1" type="file" class="file">
+    </div>
+    <div class="form-group">
+      <label for="distance_range">Distance range(less than this course distance!)</label>
+      <input type="text" class="form-control" id="distance_range" name="distance_range" placeholder="30 (Please input number only, unit is 'KM')" aria-describedby="helpBlock">
+      <span id="helpBlock" class="help-block">It's not very strict to map each range with distance,
+        it depends on the actual GSP track point frequency in your TCX file.</span>
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  <div class="badge"><h3>Todo</h3>
+    <ul class="list-group">
+      <li class="list-group-item">add upload <code>tcx</code> file function.</li>
+      <li class="list-group-item">generate <code>pdf</code> file as result, directly zip all, download</li>
+    </ul>
+  </div>
+</div>

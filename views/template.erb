@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title><%= @course_name %>(part <%= @part+1 %>)</title>
+  <meta name="description" content="<%= @course_name %>(part <%= @part+1 %>)">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <!--<link href="/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">-->
+  <style>
+    @media print {
+      /* style sheet for print goes here */
+
+      .bg-info{
+        display: none;
+      }
+    }
+    .fadeout {
+      -webkit-opacity: 0.25;
+      -moz-opacity: 0.25;
+      opacity: 0;
+      -webkit-transition: all 3s ease;
+      -moz-transition: all 3s ease;
+      -ms-transition: all 3s ease;
+      -o-transition: all 3s ease;
+      transition: all 3s ease;
+    }
+
+    .map {
+      height: 100vh;
+      border: gray 1px dashed;
+    }
+
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
+<body>
+<p class="bg-info">
+  Press <kbd><kbd>⌘</kbd> + <kbd>p</kbd></kbd>, or <kbd><kbd>ctrl</kbd> + <kbd>p</kbd></kbd> to print this page, enjoy your ride trip!
+</p>
+<h1><%= @course_name %>(part <%= @part+1 %>)</h1>
+<div style="width:100%;">
+  <canvas id="canvas"></canvas>
+</div>
+
+<script>
+  var options = {
+    responsive: true,
+    title: {
+      display: true,
+      text: ''
+    },
+    tooltips: {
+      mode: 'single',
+      callbacks: {}
+    },
+    hover: {
+//      mode: 'dataset'
+    },
+    scales: {
+      xAxes: [{
+        display: true,
+        scaleLabel: {
+          display: true,
+          labelString: 'Distance'
+        }
+      }],
+      yAxes: [{
+        display: true,
+        scaleLabel: {
+          display: true,
+          labelString: 'Altitude'
+        },
+        ticks: {
+          suggestedMin: -10,
+          suggestedMax: 250,
+        }
+      }]
+    }
+  };
+
+  var data = {
+    labels: <%=@points%>,
+    datasets: [
+      {
+        label: "海拔",
+        fill: false,
+        lineTension: 0,
+        backgroundColor: "rgba(75,192,192,0.4)",
+        borderColor: "rgba(75,192,192,1)",
+        borderCapStyle: 'round',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 1,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 1,
+        pointRadius: 1,
+        pointHitRadius: 1,
+        data: <%=@altitudes %>
+      }
+    ]
+  };
+
+  var ctx = document.getElementById("canvas").getContext("2d");
+
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: options
+  });
+
+
+  window.onload = function () {
+    window.myLine = myLineChart;
+  };
+
+</script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+</body>
+</html>
