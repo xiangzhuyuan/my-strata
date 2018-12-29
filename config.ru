@@ -7,12 +7,9 @@ use Rack::Session::Cookie, :secret => 'abc123'
 
 
 
-ENV['APP_ID']     = '12159'
-ENV['APP_SECRET'] = 'b48b5dbd9351f67b063708fe24989f0032cbc453'
-ENV['APP_TOKEN']  = ''
 
 use OmniAuth::Builder do
-  provider :strava, ENV['APP_ID'], ENV['APP_SECRET'], :scope => 'public'
+  provider :strava, ENV['APP_ID'], ENV['APP_SECRET'], :scope => 'read,read_all,profile:read_all,profile:write,activity:read,activity:read_all,activity:write'
 end
 
 

@@ -49,6 +49,7 @@ get '/home' do
 
     # new client
     @client          = Strava::Api::V3::Client.new(:access_token => session['token'])
+    @athlete         = @client.retrieve_current_athlete
     @routes          = @client.list_athlete_routes[0...3]
     # get only latest 3 routes
     @route_point_arr = []
